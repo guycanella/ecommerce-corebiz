@@ -2,22 +2,22 @@ import React from 'react-dom';
 import {
     Navbar,
     Nav,
-    Form,
     FormControl,
-    Button
-  } from 'react-bootstrap';
+} from 'react-bootstrap';
+import * as S from './styled';
 
 import corebizLogo from '../../img/corebizLogo.png';
 
 function SectionOne() {
+
     return (
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand id='navbar-brand' href="#">
-                <img id="corebizLogo" src={corebizLogo} alt="Corebiz Logo" />
-            </Navbar.Brand>
+        <Navbar expand="lg">
+            <S.NavbarBrand href="#">
+                <img src={corebizLogo} alt="Corebiz Logo" />
+            </S.NavbarBrand>
             <Navbar.Toggle aria-controls="navbarScroll" />
-            <Navbar.Collapse id="navbarScroll">
-                <Form id="searchForm" className="d-flex">
+            <Navbar.Collapse >
+                <S.form className="d-flex">
                     <FormControl
                         type="search"
                         placeholder="O que está procurando?"
@@ -25,14 +25,16 @@ function SectionOne() {
                         aria-label="Search"
                         style={{ border: 0 }}
                     />
-                    <Button id="buttonSearch" variant="outline-success"><i class="bi bi-search"></i></Button>
-                </Form>
+                    <S.Btn id="buttonSearch" variant="outline-success"><i className="bi bi-search"></i></S.Btn>
+                </S.form>
                 <Nav
                     className="mr-auto my-2 my-lg-0"
                     navbarScroll
                 >
-                    <Nav.Link href="#action2"><i class="bi bi-person"></i>Minha conta</Nav.Link>
-                    <Nav.Link href="#action1"><i id="shoppingCart" className="bi bi-cart4"></i></Nav.Link>
+                    <S.navLink href="#action2"><i className="bi bi-person"></i>Minha conta</S.navLink>
+                    <S.navLink href="#action1">
+                        <i id="shoppingCart" className="bi bi-cart4"><span>{Object.keys(localStorage).length}</span></i>
+                    </S.navLink>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
